@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script/script.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img class="img-responsive" src="Images/logo.png" width="50%" height="50%"/>
+        </div>
+        <div style="padding-top: 3%" class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
+            <div style="width: 100%" class="styled-select blue semi-square">
+                <select  id="time">
+                    <option style="width: 70%" value="1">Select Time period</option>
+                    <option style="width: 70%" value="2">Weekly</option>
+                    <option style="width: 70%" value="3">Monthly</option>
+                    <option style="width: 70%" value="4">Yearly</option>
+                </select>
+            </div>
+            <p>
+                <br>
+                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc(1)">
+                    Men <i class="fa fa-caret-down"></i>
+                </button>
+                <div id="demoAcc1" class="w3-hide w3-white w3-card-2">
+                    <a href="#" class="w3-bar-item w3-button" onclick="displayDiv('men-section','women-section')">Dresses</a>
+                    <a href="#" class="w3-bar-item w3-button">Casuals</a>
+                    <a href="#" class="w3-bar-item w3-button">Shoes</a>
+                </div>
+
+            </p>
+            <p>
+                <br>
+
+                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc(2)">
+                    Women <i class="fa fa-caret-down"></i>
+                </button>
+            <div id="demoAcc2" class="w3-hide w3-white w3-card-2">
+                <a href="#" class="w3-bar-item w3-button" onclick="displayDiv('women-section','men-section')">Dresses</a>
+                <a href="#" class="w3-bar-item w3-button">Casuals</a>
+                <a href="#" class="w3-bar-item w3-button">Shoes</a>
+            </div>
+
+            </p>
+            <p>
+                <br>
+
+                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc(3)">
+                    Kids <i class="fa fa-caret-down"></i>
+                </button>
+            <div id="demoAcc3" class="w3-hide w3-white w3-card-2">
+                <a href="#" class="w3-bar-item w3-button">Dresses</a>
+                <a href="#" class="w3-bar-item w3-button">Casuals</a>
+                <a href="#" class="w3-bar-item w3-button">Shoes</a>
+            </div>
+            </p>
+            <p>
+                <br>
+
+                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc(4)">
+                    Elders <i class="fa fa-caret-down"></i>
+                </button>
+            <div id="demoAcc4" class="w3-hide w3-white w3-card-2">
+                <a href="#" class="w3-bar-item w3-button">Dresses</a>
+                <a href="#" class="w3-bar-item w3-button">Casuals</a>
+                <a href="#" class="w3-bar-item w3-button">Shoes</a>
+            </div>
+
+            </p>
+        </div>
+        <div class="col-sm-8 text-left">
+            <div id="welcome">
+                <h3>Welcome to e-store</h3>
+                <hr>
+                <p> Select the time period and categories to display the items to shop.</p>
+                <p>Click on the image to redirect to amezon.com</p>
+            </div>
+            <div id="menu-categories">
+                <div id="men-section" style="display:none">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p>Black-Business-Casual-Dress-Shirts</p>
+                           <a target="_blank" href="https://www.amazon.com/Black-Business-Casual-Dress-Shirts/dp/B00SKX1XSM/ref=sr_1_37?ie=UTF8&qid=1504632694&sr=8-37&keywords=mens+dresses">
+                               <img src="Images/men1.jpg" class="img-circle" height="100" width="100" alt="Avatar">
+                           </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="well">
+                            <p>
+                                Cotton
+                                Imported
+                                NOTES: Some customers reflected that they ordered this shirt from other sellers with poor quality, please confirm the shirt be purchased from Paul Jones Clothing!
+                                FEATURES: Classic design; Button closure; Long sleeves; Lightweight cotton fabric
+                                OCCASION: This elegant dress shirt is perfect for Party, Business, Work, Casual, all seasons and occasions
+                                GARMENT CARE: Hand Wash. Wash separately or with similar colors in cold water. Line (hang) dry and use a warm iron if needed
+                                SIZE: Please choose your size according to our size chart images (Not the Amazon Size Chart)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p>Kaifongfu Fashion Slim Fit Dress</p>
+                            <a target="_blank" href="https://www.amazon.com/Kaifongfu-Fashion-Sleeve-Casual-Shirts/dp/B072ZZ7227/ref=sr_1_44?ie=UTF8&qid=1504632694&sr=8-44&keywords=mens+dresses">
+                                <img src="Images/men2.jpg" class="img-circle" height="100" width="100" alt="Avatar">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="well">
+                            <p>
+                                Polyester 65%/Cotton 35%
+                                Imported
+                                poly/cotton
+                                Zipper fly with belt loops
+                                Two side pocket and two back pockets
+                                37-Inch inseam unhemmed
+                                Machine wash warm with like colors, no more then 104 degrees.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p>Chef Works Men's Classic Chef Dress Pant</p>
+                            <a target="_blank" href="https://www.amazon.com/Chef-Works-Mens-Classic-Dress/dp/B003KN1Z4Y/ref=sr_1_50?ie=UTF8&qid=1504632694&sr=8-50-spons&keywords=mens+dresses&psc=1">
+                                <img src="Images/men3.jpg" class="img-circle" height="100" width="100" alt="Avatar">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="well">
+                            <p>
+                                Polyester 65%/Cotton 35%
+                                Imported
+                                poly/cotton
+                                Zipper fly with belt loops
+                                Two side pocket and two back pockets
+                                37-Inch inseam unhemmed
+                                Machine wash warm with like colors, no more then 104 degrees.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div id="women-section" style="display:none">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <p>Lark & Ro Women's Quilted Barn Jacket </p>
+                                <a target="_blank" href="https://www.amazon.com/Lark-Ro-Womens-Quilted-Jacket/dp/B01N6WUC3G/ref=sr_1_3?ie=UTF8&qid=1504632795&sr=8-3&keywords=womens+dresses">
+                                    <img src="Images/women1.jpg" class="img-circle" height="100" width="100" alt="Avatar">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="well">
+                                <p>
+                                    100% Polyester
+                                    Imported
+                                    Dry Clean Only
+                                    Diamond quilting lends classic barn style (and lightweight warmth) to this zip-and-snap jacket with elbow patches and suede trim.
+                                    Spread collar, vertical slash pockets with faux flaps, snapped side vents, lined
+                                    Model is 5' 9" and wearing a size Small
+                                    Center back length: 27.5"
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <p>Famulily Women's Stripe Flounce Sleeve Seersucker Skater Dress </p>
+                                <a target="_blank" href="https://www.amazon.com/Famulily-Womens-Stripe-Flounce-Seersucker/dp/B0747GT91T/ref=sr_1_10?ie=UTF8&qid=1504632795&sr=8-10&keywords=womens+dresses">
+                                    <img src="Images/women2.jpg" class="img-circle" height="100" width="100" alt="Avatar">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="well">
+                                <p>
+                                    Soft lightsome fabric for comfortable fit
+                                    Feature: Round neck, half sleeve with flounce detail,above knee length,
+                                    Fit and flare dress with half sleeve,O neck,back zipper closure
+                                    Suit for Daily Wear,Party,Summer Beach.
+                                    The short and sweet upper thigh length hemline maintains the babydoll look
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <p>Amoretu Summer Classic Casual Short Sleeves Midi Dress </p>
+                                <a target="_blank" href="https://www.amazon.com/Amoretu-Summer-Classic-Sleeves-XX-Large/dp/B071Y6VRYT/ref=sr_1_30?ie=UTF8&qid=1504632795&sr=8-30&keywords=womens+dresses">
+                                    <img src="Images/women3.jpg" class="img-circle" height="100" width="100" alt="Avatar">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="well">
+                                <p>
+                                    MATERIAL: Modal + Chiffon
+                                    BRAND: Amoretu. High Quality Guarantee.
+                                    PACKAGE: 1 Midi Dress
+                                    SIZE: Small, Medium, Large, X-Large, 2X-Large, 4X-large is available now. Please compare your size with our size details carefully before your order.
+                                    DESIGN: Elastic and Double stripes design of the waist, comfortable and elegant.
+                                    OCCASIONS: Great for Casual, Cocktail Daily Wear Outdoor,or Party.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 sidenav">
+            <div class="well">
+                <p>ADS</p>
+            </div>
+            <div class="well">
+                <p>ADS</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
