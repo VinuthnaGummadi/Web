@@ -1,0 +1,32 @@
+<html>
+
+  <head>
+    <title>Angular 2 Tic-tac-toe</title>
+
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+    <script>
+      System.config({
+        packages: {
+          dist: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('dist/boot')
+            .then(null, console.error.bind(console));
+    </script>
+
+    <link rel="stylesheet" href="styles.css" />
+
+  </head>
+
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+
+</html>

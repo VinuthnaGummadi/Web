@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="calculatorApplication">
+<head>
+    <meta charset="UTF-8">
+    <title>simple calculator</title>
+    <script src="lib/js/angular.min.js" type="text/javascript"></script>
+    <script src="app/js/app.js" type="text/javascript"></script>
+</head>
+
+<body ng-controller="SimpleCalculatorController">
+<div class="calculator">
+    <div class="display">
+        Enter the first Number : <input type="text" ng-model="firstValue"/><br>
+        Enter the second Number : <input type="text" ng-model="secondValue"/><br>
+        Select Operator :
+        <select>
+        <option ng-repeat="key in operationKeys" ng-click="operationClicked(key.operation)">{{key.label}}</option>
+        </select><br>
+        Result : {{ displayValue }}
+    </div>
+</div>
+</body>
+</html>

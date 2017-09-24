@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="calculatorApplication">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <script src="lib/js/angular.min.js" type="text/javascript"></script>
+    <script src="app/js/app.js" type="text/javascript"></script>
+    <link href="app/style/default.css" rel="stylesheet" type="text/css">
+</head>
+<body ng-controller="CalculatorController">
+<div class="calculator">
+    <div class="display">{{ displayValue }}</div>
+    <div class="digitsKeyboard">
+        <div class="digitKey" ng-repeat="key in digitKeys" ng-click="digitClicked(key.value)">
+            {{ key.label }}
+        </div>
+        <div class="equalSignKey" ng-click="compute()">
+            {{ equalSignKey.label }}
+        </div>
+    </div>
+    <div class="operationsKeyboard">
+        <div class="operationKey" ng-repeat="key in operationKeys" ng-click="operationClicked(key.operation)">
+            {{ key.label }}
+        </div>
+    </div>
+</div>
+</body>
+</html>
