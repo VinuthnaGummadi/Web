@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="GoogleDirection">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-sanitize.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWhSE1HAi753_M8rcFTfcbBXUQInf8y6c&libraries=places&v=3.exp&sensor=true"></script>
+
+    <link data-require="bootstrap-css" data-semver="3.3.1" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+
+    <!-- vsGoogleAutocomplete -->
+    <script src="js/vs-google-autocomplete.js"></script>
+
+    <style>
+        #map-canvas {
+            width: 100%;
+            height: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <div id="regbar">
+        <h2 style="padding: 20px;color: #ecf0f1;">Home</h2>
+    </div>
+</div>
+
+<div class="wrapp" ng-controller="googlemapoutput">
+    <div class="formholder">
+
+        <input vs-google-autocomplete="{ types:['(cities)'] }"
+               ng-model="city"
+               type="text"
+               name="city"
+               id="city"
+               class="form-control"
+               placeholder="Enter from city name">
+        <div display="none" ng-show="weathershow">
+            <p class="currentConditions" ng-bind-html="currentweather"></p>
+            <div class="currentIcon" ng-bind-html="currentIcon"></div>
+        </div>
+
+        <input vs-google-autocomplete="{ types:['(cities)'] }"
+               ng-model="tocity"
+               type="text"
+               name="tocity"
+               id="tocity"
+               class="form-control"
+               placeholder="Enter to city name">
+        <div display="none" ng-show="weathershow">
+            <p class="currentConditions" ng-bind-html="tocurrentweather"></p>
+            <div class="currentIcon" ng-bind-html="tocurrentIcon"></div>
+        </div>
+        <div style="padding-top: 50px;padding-left: 40%">
+        <button id="btn" class="button" ng-click="calcRoute()">
+            Get Direction
+        </button>
+        </div>
+        <br/></br>
+        <div id="map-canvas" style="height: 400px;"></div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
+
+<script>
+    angular.module('GoogleDirection', ['ngSanitize','vsGoogleAutocomplete'])
+        .controller('googlemapoutput', function ($scope,$http) {
+
+            var map;
+            var mapOptions;
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+                draggable: true
+            });
+            var directionsService = new google.maps.DirectionsService();
+
+            $scope.initialize = function () {
+                var pos = new google.maps.LatLng(0, 0);
+                var mapOptions = {
+                    zoom: 3,
+                    center: pos
+                };
+
+                map = new google.maps.Map(document.getElementById('map-canvas'),
+                    mapOptions);
+            };
+            $scope.calcRoute = function () {
+
+                var city = document.getElementById("city").value;
+                cities = city.split(",");
+
+                var tocity = document.getElementById("tocity").value;
+                tocities = tocity.split(",");
+
+                var end = tocities[0];
+                var start = cities[0];
+
+                var request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.TravelMode.DRIVING
+                };
+
+                directionsService.route(request, function (response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setMap(map);
+                        directionsDisplay.setDirections(response);
+                        console.log(status);
+                    }
+
+                });
+
+                $http.get('https://api.wunderground.com/api/36b799dc821d5836/conditions/q/'+cities[1]+'/'+cities[0]+'.json').success(function(data) {
+                    console.log(data);
+                    temp = data.current_observation.temp_f;
+                    icon = data.current_observation.icon_url;
+                    weather = data.current_observation.weather;
+                    console.log(temp);
+                    $scope.currentweather =  "Currently " + temp + " &deg; F and " + weather ;
+                    $scope.currentIcon =  "<img src='" + icon + "'/>"
+
+
+                })
+
+                $http.get('https://api.wunderground.com/api/36b799dc821d5836/conditions/q/'+tocities[1]+'/'+tocities[0]+'.json').success(function(data) {
+                    console.log(data);
+                    temp = data.current_observation.temp_f;
+                    icon = data.current_observation.icon_url;
+                    weather = data.current_observation.weather;
+                    console.log(temp);
+                    $scope.tocurrentweather =  "Currently " + temp + " &deg; F and " + weather ;
+                    $scope.tocurrentIcon =  "<img src='" + icon + "'/>"
+
+
+                })
+                $scope.weathershow = true;
+            };
+
+
+
+            google.maps.event.addDomListener(window, 'load', $scope.initialize);
+
+
+
+        });
+
+
+</script>

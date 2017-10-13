@@ -1,0 +1,63 @@
+<html>
+<head>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="gistfile1.js"></script>
+</head>
+<body>
+<script>
+    var data = []
+
+    var h = 540, w = 1080
+
+    var vis = d3.select("body")
+        .append("svg:svg")
+        .attr("width", w)
+        .attr("height", h)
+
+    xy = d3
+        .geo
+        .equirectangular()
+        .scale(150)
+        .translate([w/2, h/2])
+
+    path = d3
+        .geo
+        .path()
+        .projection(xy)
+
+    countries = vis
+        .append('svg:g')
+        .attr('id', 'countries')
+
+    countries.selectAll('path')
+        .data(countries_data.features)
+        .enter()
+        .append('svg:path')
+        .attr('d', path)
+        .attr('fill', 'rgba(184,138,0,0.2)')
+        .attr('stroke-width', 1);
+
+    d3.geo.path()
+
+    d3.csv("lat-long.csv", function(parsedRows) {
+        data = parsedRows
+        for (i = 0; i < data.length; i++) {
+            var mapCoords = this.xy([data[i].long, data[i].lat])
+            data[i].lat = mapCoords[0]
+            data[i].long = mapCoords[1]
+        }
+
+        vis.selectAll("circle")
+            .data(data)
+            .enter().append("svg:circle")
+            .attr("cx", function(d) { return d.lat })
+            .attr("cy", function(d) { return d.long })
+            .attr("stroke-width", "none")
+            .attr("fill", function() { return "rgb(255,148,0)" })
+            .attr("fill-opacity", .5)
+            .attr("r", function() { return 3 })
+    })
+
+</script>
+</body>
+</html>

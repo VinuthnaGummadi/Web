@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="regbar" ng-controller="LoginController">
+                <h2>Login</h2>
+                <form name="loginForm" role="form" class="formholder">
+                    <label name="email">Email</label>
+                    <input type="email" name="email" id="email" ng-model="email" required/>
+                    <label name="password">Password</label>
+                    <input type="password" name="password" id="password"  ng-model="password" required/>
+
+                    <button ng-click="login()" class="button">Login</button>
+                </form>
+
+        </div>
+<script src="js/angular.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
