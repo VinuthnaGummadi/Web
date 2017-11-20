@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "354464946854",
+    "firebase_url": "https://assignment4-d2c73.firebaseio.com",
+    "project_id": "assignment4-d2c73",
+    "storage_bucket": "assignment4-d2c73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354464946854:android:ba31670024eb7654",
+        "android_client_info": {
+          "package_name": "edu.umkc.mobile.assignment4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "354464946854-45962smhae81i2g53v3gq41pc6aohssk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.umkc.mobile.assignment4",
+            "certificate_hash": "97ddbd689490daea9807f0e167953a884d12261d"
+          }
+        },
+        {
+          "client_id": "354464946854-jd1dgi7f0o4fg2nqap1c2hihacv855ij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCouy8nNZ3TmBB7bvLR7cN5ino4BpLAdG4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "354464946854-jd1dgi7f0o4fg2nqap1c2hihacv855ij.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
